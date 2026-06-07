@@ -239,6 +239,7 @@ h1 em {
   overflow: hidden;
   box-shadow: 0 4px 32px rgba(180,150,200,0.12);
   border: 1.5px solid rgba(201,160,220,0.18);
+  position: relative;
 }
 
 .video-card video {
@@ -247,14 +248,40 @@ h1 em {
   border-radius: 28px 28px 0 0;
 }
 
+.video-overlay {
+  display: none;
+}
+
+.mute-text { display: none; }
+
 .video-label {
-  padding: 14px 22px;
+  padding: 12px 18px;
   font-family: 'Caveat', cursive;
   font-size: 1.1rem;
   color: var(--muted);
-  text-align: center;
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+#unmute-btn {
+  background: var(--peach);
+  border: 1px solid rgba(201,160,220,0.25);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #7a5a6a;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.15s;
+}
+
+#unmute-btn:hover  { background: #f9d4bc; transform: scale(1.1); }
+#unmute-btn:active { transform: scale(0.93); }
 
 /* ── about card ── */
 .about-card {
