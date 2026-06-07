@@ -3,10 +3,10 @@ import express from "express";
 const app = express();
 
 const PORT = process.env.PORT || 8000;
-const VERSION = process.env.VERSION || 'version2';
+const VERSION = process.env.VERSION || 'version1';
 
 app.get('/' , (_,res)=>{
-    res.send("Hello from our tiny deployment app v2")
+    res.send("Hello from our tiny deployment app")
 })
 
 app.get('/version' , (req,res)=>{
