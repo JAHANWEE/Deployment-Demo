@@ -1,19 +1,20 @@
 import express from "express";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = dirname(__filename);
 
 const app = express();
 
-const PORT = process.env.PORT || 8000;
+const PORT    = process.env.PORT    || 8000;
 const VERSION = process.env.VERSION || 'version1';
 
-app.get('/' , (_,res)=>{
-    res.send("Hello from our tiny deployment app from v4.2")
-})
+// serve pre-built static assets (html, css, video)
+app.use(express.static(join(__dirname, 'public')));
 
-app.get('/whoami' , (_,res)=>{
-    res.send(`Hey peeps,
-        Welcome to my mini deployment website.
-        i am a developer who is just trying to get a hang of things.
-        So be nice to me , my dog also says "hi" `)
+app.get('/', (_, res) => {
+    res.sendFile(join(__dirname, 'public', 'whoami.html'));
 })
 
 app.get('/version' , (req,res)=>{
