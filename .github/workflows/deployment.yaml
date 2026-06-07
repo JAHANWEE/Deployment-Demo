@@ -17,6 +17,7 @@ jobs:
           username: ubuntu
           key: ${{secrets.PRIVATE_KEY}}
           script: |
+            source ~/.nvm/nvm.sh || source ~/.profile || true
             cd /home/ubuntu/Deployment-Demo
             git pull origin main
             npm ci
